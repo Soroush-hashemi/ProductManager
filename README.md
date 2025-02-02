@@ -1,2 +1,2 @@
 # ProductManager
-simple Asp.net core MVC projuct
+simple Asp.net core MVC project
