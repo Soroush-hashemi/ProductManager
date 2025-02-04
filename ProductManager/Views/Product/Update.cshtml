@@ -1,0 +1,21 @@
+﻿@model Product
+@{
+
+}
+
+<div class="text-center">
+    <form method="post" asp-controller="Product" asp-action="Update">
+        <legend>Update Product</legend>
+        <input type="hidden" value="@Model.Id" />
+        <label class="label" for="Name">
+            Name :
+            <input class="input" type="text" name="Name" value="@Model.Name" />
+        </label>
+
+        <label class="label" for="Price">
+            Price :
+            <input class="input" type="number" name="Price" value="@Model.Price" />
+        </label>
+        <input class="submit" type="submit" name="submit" />
+    </form>
+</div>

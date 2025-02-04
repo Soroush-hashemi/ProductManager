@@ -1,0 +1,19 @@
+﻿@model Product
+@{
+
+}
+
+<div class="text-center">
+    <p>list of product</p>
+    <a href="/product/update/@Model.Id">اپدیت کردن محصول جدید</a>
+    <table>
+        <tr>
+            <th class="table-th">Name</th>
+            <th class="table-th">Price</th>
+        </tr>
+        <tr>
+            <td class="table-td">@Model.Name</td>
+            <td class="table-td">@Model.Price</td>
+        </tr>
+    </table>
+</div>
