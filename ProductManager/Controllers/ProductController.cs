@@ -2,7 +2,7 @@
 using ProductManager.Models;
 
 namespace ProductManager.Controllers;
-[Route("/Product")]
+[Route("Product")]
 public class ProductController : Controller
 {
     private readonly ProductDbContext _context;
@@ -11,12 +11,13 @@ public class ProductController : Controller
         _context = context;
     }
 
+    [HttpGet("")]
     public IActionResult Index()
     {
         return View();
     }
 
-    [Route("/GetList")]
+    [HttpGet("GetList")]
     public IActionResult GetList()
     {
         List<Product> products = _context.Products.ToList();
@@ -24,44 +25,49 @@ public class ProductController : Controller
     }
 
 
-    [Route("/Detail/{id}")]
+    [HttpGet("Detail/{id}")]
     public IActionResult Detail(int id)
     {
         Product product = GetProduct(id);
         return View(product);
     }
 
-    [HttpGet("/Add")]
+    [HttpGet("Add")]
     public IActionResult Add()
     {
         return View();
     }
 
-    [HttpPost("/Add")]
-    public IActionResult Add(Product product)
+    [HttpPost("Add")]
+    public IActionResult Add(string name, int price)
     {
+        Product product = new Product(name, price);
         _context.Products.Add(product);
         _context.SaveChanges();
 
         return Redirect("../");
     }
 
-    [HttpGet("/Update/{id}")]
+    [HttpGet("Update/{id}")]
     public IActionResult Update(int id)
     {
         Product product = GetProduct(id);
         return View(product);
     }
 
-    [HttpPut("/Update")]
-    public IActionResult Update(Product product)
+    [HttpPost("Update/{id}")]
+    public IActionResult Update(int id, string name, int price)
     {
+        Product product = GetProduct(id);
+        product.Name = name;
+        product.Price = price;
         _context.Products.Update(product);
         _context.SaveChanges();
+
         return Redirect("../");
     }
 
-    [Route("/Remove/{id}")]
+    [HttpGet("Remove/{id}")]
     public IActionResult Remove(int id)
     {
         Product product = GetProduct(id);
