@@ -1,0 +1,19 @@
+﻿@{
+}
+
+<div class="text-center">
+    <h1>Product Page</h1>
+    <p>you can add , update , remove , get product in here</p>
+    <button class="product-button" onclick="product_add()">Add</button>
+    <button class="product-button" onclick="product_get()">Get List</button>
+</div>
+
+<script>
+    function product_add() {
+        window.location.href = "/product/Add";
+    }
+
+    function product_get() {
+        window.location.href = "/product/GetList";
+    }
+</script>

@@ -1,0 +1,20 @@
+﻿@model Product
+@{
+
+}
+
+<div class="text-center">
+    <form method="post" asp-controller="Product" asp-action="Add">
+        <legend>Add Product</legend>
+        <label class="label" for="Name">
+            Name :
+            <input class="input" type="text" name="Name" />
+        </label>
+
+        <label class="label" for="Price">
+            Price :
+            <input class="input" type="number" name="Price" />
+        </label>
+        <input class="submit" type="submit" name="submit" />
+    </form>
+</div>
