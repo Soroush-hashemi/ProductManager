@@ -1,0 +1,27 @@
+services:
+  sqlserverDB:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Str0ngP@ssw0rd!
+    ports:
+      - "1433:1433"
+    networks:
+      - productmanagernetwork
+  web:
+    image: soroush8hashemi/productmanager:latest
+    build: 
+        context: . 
+        dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081" 
+    depends_on: 
+      - sqlserverDB
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - productmanagernetwork
+
+networks:
+  productmanagernetwork: 
