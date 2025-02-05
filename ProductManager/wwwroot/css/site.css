@@ -1,4 +1,4 @@
-html {
+﻿html {
     font-size: 14px;
 }
 
@@ -95,3 +95,63 @@ body {
     font-size: 16px;
     color: aliceblue;
 }
+
+
+/* تنظیم Dropdown */
+.dropdown {
+    position: relative; /* مهم: این باعث می‌شود dropdown-content نسبت به این عنصر تنظیم شود */
+    display: inline-block;
+}
+
+/* دکمه نمایش‌دهنده لیست محصولات */
+.dropdown-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* تغییر موقعیت Dropdown به سمت چپ */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0; /* لیست را به سمت چپ می‌چسباند */
+    top: 100%; /* باعث می‌شود که لیست دقیقاً پایین دکمه باز شود */
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* نمایش محتوا وقتی موس روی دکمه می‌رود */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* تنظیم استایل لیست محصولات */
+.dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .dropdown-content ul li {
+        padding: 8px 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .dropdown-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content ul li:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
