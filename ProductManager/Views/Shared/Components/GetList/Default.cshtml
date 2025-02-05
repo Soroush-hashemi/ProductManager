@@ -1,0 +1,9 @@
+@model List<Product>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+<a href="~/product/getlist">See all products</a>
