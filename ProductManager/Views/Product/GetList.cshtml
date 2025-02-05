@@ -6,37 +6,6 @@
 <div class="text-center">
     <p>list of product</p>
     <a href="/product/add">افزودن محصول جدید</a>
-    <table>
-        <tr>
-            <th class="table-th">Name</th>
-            <th class ="table-th">Price</th>
-            <th class="table-th">Detail</th>
-            <th class="table-th">Update</th>
-            <th class="table-th">Remove</th>
-        </tr>
-        @foreach(var item in Model)
-        {
-            <tr>
-                <td class="table-td">@item.Name</td>
-                <td class="table-td">@item.Price</td>
-                <td class="table-td"><button class="product-button" onclick="product_detail(@item.Id)">Detail</button></td>
-                <td class="table-td"><button class="product-button" onclick="product_update(@item.Id)">Update</button></td>
-                <td class="table-td"><button class="product-button" onclick="product_remove(@item.Id)">Remove</button></td>
-            </tr>
-        }
-    </table>
+    <partial name="_ProductDetails" model="Model" />
 </div>
 
-<script>
-    function product_detail(id) {
-        window.location.href = "/product/Detail/" + id;
-    }
-
-    function product_update(id) {
-        window.location.href = "/product/Update/" + id;
-    }
-
-    function product_remove(id) {
-        window.location.href = "/product/Remove/" + id;
-    }
-</script>
